@@ -51,10 +51,18 @@
                     }
                 }
             }
+
+            string bonusPath = "C:\\.NET\\addresses-bonus.csv";
+            using (File.Create(bonusPath)) { }
+            List<string> bonusList = new List<string>();
             foreach (var indirizzo in indirizzi)
             {
                 Console.WriteLine(indirizzo.ToString());
+                bonusList.Add(indirizzo.ToString());
             }
+            File.WriteAllLines(bonusPath, bonusList);
+
+            Console.WriteLine("File contenente gli indirizzi corretti e' stato creato correttamente!");
         }
     }
 }
